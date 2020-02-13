@@ -19,8 +19,8 @@ feature 'viewing bookmarks' do
     visit('/')
     click_button 'Bookmarks'
 
-    expect(page).to have_content "Learning code ting"
-    expect(page).to have_content "Destroy the ting"
-    expect(page).to have_content "Find the tings"
+    expect(page).to have_link('Learning code ting', href: 'http://www.makersacademy.com')
+    expect(page).to have_link('Destroy the ting', href: 'http://www.destroyallsoftware.com')
+    expect(page).to have_link('Find the tings', href: 'http://www.google.com')
   end
 end
