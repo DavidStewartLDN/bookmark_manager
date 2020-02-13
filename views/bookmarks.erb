@@ -7,8 +7,8 @@
     <p> All of you lovely bookmarks are listed here: </p>
     <% @bookmarks.each do |bookmark|  %>
     <li>
-      <a href="<%=bookmark[1] %>">
-      <%= bookmark[0] %>
+      <a href="<%=bookmark.url %>">
+      <%= bookmark.title %>
       </a>
     </li>
   <% end %> 
