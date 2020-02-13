@@ -14,19 +14,20 @@ describe Bookmark do
 
       bookmarks = Bookmark.all
 
-      expect(bookmarks).to include("Learning code ting")
-      expect(bookmarks).to include('Destroy the ting')
-      expect(bookmarks).to include('Find the tings')
+      expect(bookmarks[0]).to include("Learning code ting")
+      expect(bookmarks[1]).to include('Destroy the ting')
+      expect(bookmarks[2]).to include('Find the tings')
     end
   end
 
   describe '#create' do
     it 'adds a bookmark to database' do
-      connection = PG.connect(dbname: 'bookmark_manager_test')
       
-      bookmarks = Bookmark.create('https://www.github.com', 'That code place')
-      bookmarks = Bookmark.all
-      expect(bookmarks).to include('That code place')
+      # bookmark = Bookmark.create('https://www.github.com', 'That code place').first
+      bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark').first
+
+      expect(bookmark['url']).to eq 'http://www.testbookmark.com'
+      expect(bookmark['title']).to eq 'Test Bookmark'
     end
   end
 
